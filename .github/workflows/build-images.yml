@@ -35,7 +35,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
-          context: database/migrations
           file: database/migrations/Dockerfile
           push: true
           tags: ghcr.io/jaronoff97/clowarden/clowarden-dbmigrator:${{ github.sha }}
@@ -68,7 +67,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
-          context: clowarden-server
           file: clowarden-server/Dockerfile
           push: true
           tags: ghcr.io/jaronoff97/clowarden/clowarden-server:${{ github.sha }}
