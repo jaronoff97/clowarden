@@ -15,7 +15,7 @@ RUN apk --no-cache add git
 WORKDIR /web
 COPY web .
 ENV NODE_OPTIONS=--max_old_space_size=8192
-RUN yarn install --network-concurrency 1
+RUN yarn install --network-timeout 1000000 --network-concurrency 1
 RUN yarn build
 
 # Final stage
