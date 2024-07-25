@@ -14,8 +14,8 @@ FROM node:18-alpine3.20 AS frontend-builder
 RUN apk --no-cache add git
 WORKDIR /web
 COPY web .
-ENV NODE_OPTIONS=--max_old_space_size=4096
-RUN yarn install
+ENV NODE_OPTIONS=--max_old_space_size=8192
+RUN yarn install --network-concurrency 1
 RUN yarn build
 
 # Final stage
