@@ -38,7 +38,7 @@ jobs:
           context: database/migrations
           file: database/migrations/Dockerfile
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/clowarden-dbmigrator:${{ github.sha }}
+          tags: ghcr.io/jaronoff97/clowarden/clowarden-dbmigrator:${{ github.sha }}
 
   build-clowarden-server-image:
     if: github.ref == 'refs/heads/main'
@@ -71,4 +71,4 @@ jobs:
           context: clowarden-server
           file: clowarden-server/Dockerfile
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/clowarden-server:${{ github.sha }}
+          tags: ghcr.io/jaronoff97/clowarden/clowarden-server:${{ github.sha }}
